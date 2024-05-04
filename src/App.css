@@ -1,38 +1,91 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+  font-family: "Advent Pro", sans-serif;
+}
 .App {
+  font-family: "Advent Pro", sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  background-color: transparent;
+  color: #fff;
+  padding: 20px 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo img {
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 20px;
+}
+
+.logo, .title {
+  font-family: "Advent Pro", sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  color: #8ABE53;
+}
+
+.header-image img {
+  width: 100%;
+}
+button {
+  font-family: "Advent Pro", sans-serif;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 25px;
+  border: none;
+  background-color: #8ABE53;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: black;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 20px;
+  margin: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.image-item {
+  position: relative;
+  width: auto;
+  height: auto;
+  aspect-ratio: 1.5; /* Adjust aspect ratio as needed */
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Resize image to cover entire container */
+  object-position: center; /* Center image within container */
+}
+.image-item.big {
+  grid-column-end: span 2; /* Takes up two grid columns for bigger images */
+}
+@media (max-width: 768px) {
+  .logo, .title {
+    font-size: 18px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
